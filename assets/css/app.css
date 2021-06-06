@@ -1,0 +1,51 @@
+.corpo {
+  width: 100%;
+  background-color: rgb(253, 253, 253);
+  height: 100%;
+}
+.container {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 2%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#app {
+  background-color: rgb(46, 102, 155);
+  padding: 10px;
+  border-radius: 12px;
+  width: 98%;
+  max-width: 700px;
+}
+.input-anime {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  height: 35px;
+  padding-left: 15px;
+}
+.animes {
+  width: 98%;
+  margin: 15px auto;
+  color: white;
+}
+.animes li{
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.check{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80px;
+}
+#check {
+  cursor: pointer;
+}
