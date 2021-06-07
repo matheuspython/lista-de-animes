@@ -10,8 +10,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  padding:3px 0;
 }
 #app {
   background-color: rgb(46, 102, 155);
