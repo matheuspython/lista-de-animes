@@ -28,6 +28,7 @@ function criaDivCheck(animeText){
 
   const assistido = document.createTextNode('assistido')
   const input = criadores.criaInput()
+  input.classList.add('input-check')
 
 
  
@@ -56,4 +57,13 @@ input.addEventListener('keypress', e => {
     }
 })
 
-
+document.addEventListener('click', e => {
+  const el = e.target
+  if(el.classList.contains("input-check")){
+    if(el.parentElement.style.color == '#15B097') {
+      el.preventdefault()
+      return
+    }
+    el.parentElement.style.color = '#15B097'
+  }
+})
