@@ -1,33 +1,33 @@
 const input = document.querySelector('.input-anime')
 const list = document.querySelector('.animes')
 
-
-function criaLi() {
-  const li = document.createElement('li')
-  return li
+const criadores = {
+  criaLi() {
+    const li = document.createElement('li')
+    return li
+  },
+  criaEBotaClass(tipo, clase) {
+    const el = document.createElement(tipo)
+    el.classList.add(clase)
+    return el
+  },
+  criaInput() {
+    const inputs = document.createElement('input')
+    inputs.type = 'checkbox'
+    return inputs
+  }
 }
 
-function criaEBotaClass(tipo, clase) {
-  const el = document.createElement(tipo)
-  el.classList.add(clase)
-  return el
-}
-
-function criaInput() {
-  const inputs = document.createElement('input')
-  inputs.type = 'checkbox'
-  return inputs
-}
 
 function criaDivCheck(animeText){
   const anime = document.createTextNode(animeText)
 
-  const li = criaLi()
+  const li = criadores.criaLi()
 
-  const div = criaEBotaClass('div', 'check')
+  const div = criadores.criaEBotaClass('div', 'check')
 
   const assistido = document.createTextNode('assistido')
-  const input = criaInput()
+  const input = criadores.criaInput()
 
 
  
