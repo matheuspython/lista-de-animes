@@ -30,8 +30,6 @@ function criaDivCheck(animeText){
   const assistido = document.createTextNode('assistido')
   const input = criadores.criaInput()
   input.classList.add('input-check')
-
-
  
   li.appendChild(anime)
   li.appendChild(div)
@@ -44,22 +42,15 @@ function criaDivCheck(animeText){
 }
 
 
-
-
-
-
-
 input.addEventListener('keypress', e => {
     if (e.keyCode === 13) {
       if(input.value == '') return
         const anime = input.value 
         criaDivCheck(anime)
         input.value = ''
-        salvaAnimes()
-    console.log(localStorage.getItem('animeszoes'))
+        metodosParaSalvamento.salvaAnimes()
     }
 })
-
 
 
 document.addEventListener('click', e => {
@@ -70,12 +61,30 @@ document.addEventListener('click', e => {
     }
     el.parentElement.style.color = '#15B097'
     el.style.display = 'none'
-    salvaAnimes()
+    metodosParaSalvamento.salvaAnimes()
 
   }
 })
 
-function salvaAnimes(){
+function salva(objSalvo) {
+ return {
+  salvaAnimes(){
+    const liAnimes = document.querySelectorAll('.animes li')
+    const liDeAnimes = []
+
+    liAnimes.forEach(()=>{
+      let animeTxt = anime.innerHTML
+      liDeAnimes.push(animeTxt)
+    })
+
+    const animesJSON = JSON.stringify(liDeAnimes)
+    localStorage.setItem('animeszoes', animesJSON)
+  }
+ }
+}
+
+const metodosParaSalvamento =  {
+  salvaAnimes(){
   const liAnimes = document.querySelectorAll('.animes li')
   const liDeAnimes = []
 
@@ -83,17 +92,18 @@ function salvaAnimes(){
     let animeTxt = anime.innerHTML
     liDeAnimes.push(animeTxt)
   }
+
+
   const animesJSON = JSON.stringify(liDeAnimes)
   localStorage.setItem('animeszoes', animesJSON)
-}
-
-function adicionaAnimesSalvos() {
+},
+  adicionaAnimesSalvos() {
   const animes = localStorage.getItem('animeszoes')
   const listaDeAnimes = JSON.parse(animes)
 
-  for (let anime of listaDeAnimes) {
-      list.innerHTML += `<li>${anime}</li>`
-  }
+  for (let anime of listaDeAnimes) list.innerHTML += `<li>${anime}</li>`
 }
-adicionaAnimesSalvos()
+}
+
+metodosParaSalvamento.adicionaAnimesSalvos()
 //localStorage.clear()
